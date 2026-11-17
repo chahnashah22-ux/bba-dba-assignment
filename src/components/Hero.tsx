@@ -61,20 +61,13 @@ export function Hero() {
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
 
-            <a
-              href="#education"
-              className="inline-flex items-center min-h-[44px] px-6 py-2.5 text-sm font-medium text-[var(--ink)] border border-[var(--ink)]/25 bg-[var(--surface)] rounded-sm whitespace-nowrap shrink-0 transition-colors duration-150 hover:border-[var(--ink)] hover:bg-[var(--surface-tint)]"
-            >
-              Explore my journey
-            </a>
-
             <button
               type="button"
               onClick={handlePrint}
               className="inline-flex items-center gap-2 min-h-[44px] px-4 py-2.5 text-sm font-medium text-[var(--ink-secondary)] border border-[var(--hairline)] bg-transparent rounded-sm whitespace-nowrap shrink-0 transition-colors duration-150 hover:border-[var(--ink-secondary)] hover:text-[var(--ink)] cursor-pointer"
             >
               <Printer className="h-4 w-4" aria-hidden="true" />
-              <span>Save PDF</span>
+              <span>Print Resume</span>
             </button>
           </div>
         </div>

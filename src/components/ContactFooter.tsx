@@ -1,30 +1,7 @@
-import { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Printer } from 'lucide-react';
+import { ArrowUpRight, Printer } from 'lucide-react';
 import { PROFILE } from '../data/resumeData';
 
 export function ContactFooter() {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = async () => {
-    try {
-      await navigator.clipboard.writeText(PROFILE.email);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2200);
-    } catch {
-      const textarea = document.createElement('textarea');
-      textarea.value = PROFILE.email;
-      textarea.setAttribute('readonly', '');
-      textarea.style.position = 'absolute';
-      textarea.style.left = '-9999px';
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2200);
-    }
-  };
-
   return (
     <>
       <section
@@ -51,24 +28,6 @@ export function ContactFooter() {
                 <span>Email me</span>
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
-
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 min-h-[44px] px-5 py-2.5 text-sm font-medium text-[var(--ink)] border border-[var(--ink)]/25 bg-[var(--surface)] rounded-sm whitespace-nowrap shrink-0 transition-colors duration-150 hover:border-[var(--ink)] cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <Check className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
-                    <span>Copied</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="h-4 w-4" aria-hidden="true" />
-                    <span>Copy email</span>
-                  </>
-                )}
-              </button>
 
               <button
                 type="button"
